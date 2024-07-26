@@ -7,12 +7,12 @@ trigger:
 - master
 
 pool:
-  vmImage: ubuntu-latest
+  name: G06AUXN03156
 
 steps:
 - task: NodeTool@0
   inputs:
-    versionSpec: '10.x'
+    versionSpec: '20.15.1'
   displayName: 'Install Node.js'
 
 - script: |
