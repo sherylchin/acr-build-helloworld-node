@@ -19,12 +19,20 @@ steps:
 - script: |
     npm install
     npm run-script build
+    echo "npm install and build"
+  displayName: 'npm install and build'
+
+- script: |
     npm run-script generate-blob
     npm run-script copy-node
     npm run-script inject-blob
-    7z a -tzip "TEFIAgent.zip" "./release/*"
     echo "Create single executable application TEFI Agent"
-  displayName: 'Build TEFI Agent'
+  displayName: 'Create single executable application TEFI Agent'
+
+- script: |
+    7z a -tzip "TEFIAgent.zip" "./release/*"
+    echo "Zip release"
+  displayName: 'Zip release'
 
 - publish: 'release/TEFIAgent.zip'
   artifact: TEFICloud
