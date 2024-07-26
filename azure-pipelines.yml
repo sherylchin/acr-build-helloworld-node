@@ -19,3 +19,13 @@ steps:
     npm install
     npm run build
   displayName: 'npm install and build'
+
+- script: |
+    npm install
+    npm run-script build
+    npm run-script generate-blob
+    npm run-script copy-node
+    npm run-script inject-blob
+    7z a -tzip "TEFIAgent.zip" "./release/*"
+    echo "Create single executable application TEFI Agent"
+  displayName: 'Build TEFI Agent'
