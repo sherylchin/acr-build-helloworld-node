@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  name: G06AUXN03156
+  name: default
 
 steps:
 - task: NodeTool@0
